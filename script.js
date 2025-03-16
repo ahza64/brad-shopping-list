@@ -19,6 +19,7 @@ function onAddItemSubmit(e) {
     alert('please add an item')
     return
   }
+  
   if (isEditMode) {
     const itemToEdit = itemList.querySelector('.edit-mode')
     removeItemFromStorage(itemToEdit.textContent)
