@@ -57,6 +57,19 @@ function clearItems(e) {
   checkUI()
 }
 
+function fitlerItems(e) {
+  const items = itemList.querySelectorAll('li')
+  const text = e.target.value
+  items.forEach(item => {
+    itemName = item.firstChild.textContent.toLowerCase()
+    if (itemName.indexOf(text) != -1) {
+      item.style.display = 'flex'
+    } else {
+      item.style.display = 'none'
+    }
+  })
+}
+
 function checkUI(e) {
   const items = itemList.querySelectorAll('li')
   if (items.length === 0) {
@@ -71,5 +84,6 @@ function checkUI(e) {
 itemForm.addEventListener('submit', addItem)
 itemList.addEventListener('click', removeItem)
 clearBtn.addEventListener('click', clearItems)
+itemFilter.addEventListener('input', fitlerItems)
 
 checkUI()
